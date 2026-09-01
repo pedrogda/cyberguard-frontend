@@ -67,6 +67,33 @@ function Dashboard() {
             ).length
         }
     ];
+    const alertsByType = [
+        {
+            type: "BRUTE_FORCE",
+            total: alerts.filter(
+                (alert) => alert.type === "BRUTE_FORCE"
+            ).length
+        },
+        {
+            type: "PASSWORD_SPRAYING",
+            total: alerts.filter(
+                (alert) => alert.type === "PASSWORD_SPRAYING"
+            ).length
+        },
+        {
+            type: "POSSIBLE_ACCOUNT_COMPROMISE",
+            total: alerts.filter(
+                (alert) => alert.type === "POSSIBLE_ACCOUNT_COMPROMISE"
+            ).length
+        }
+    ];
+
+    const recentEvents = [...events]
+        .sort(
+            (a, b) =>
+                new Date(b.timestamp) - new Date(a.timestamp)
+        )
+        .slice(0, 5);
 
     return (
         <div>
@@ -108,6 +135,44 @@ function Dashboard() {
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
+            </div>
+            <div>
+                <h2>Alertas por Tipo</h2>
+
+                <div style={{ width: "100%", height: 300 }}>
+                    <ResponsiveContainer>
+                        <BarChart data={alertsByType}>
+                            <XAxis dataKey="type" />
+                            <YAxis allowDecimals={false} />
+                            <Tooltip />
+                            <Bar
+                                dataKey="total"
+                                fill="#8884d8"
+                            />
+                        </BarChart>
+                    </ResponsiveContainer>
+                </div>
+            </div>
+            <div>
+                <h2>Eventos Recentes</h2>
+
+                {recentEvents.length === 0 ? (
+                    <p>Nenhum evento encontrado.</p>
+                ) : (
+                    <ul>
+                        {recentEvents.map((event) => (
+                            <li key={event.id}>
+                                {event.eventType}
+                                {" - "}
+                                {event.username}
+                                {" - "}
+                                {event.sourceIp}
+                                {" - "}
+                                {new Date(event.timestamp).toLocaleString()}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         </div>
     );
