@@ -1,7 +1,9 @@
 import { useState } from "react";
 import api from "../services/api";
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setToken }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,9 +17,13 @@ function Login() {
         
       });
 
-      localStorage.setItem("token", response.data.token);
+      const receivedToken = response.data.token;
 
-      console.log(response.data);
+      localStorage.setItem("token", receivedToken);
+
+      setToken(receivedToken);
+
+      navigate("/dashboard");
 
     } catch (error) {
       console.error(error);
