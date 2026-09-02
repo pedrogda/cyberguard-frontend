@@ -1,58 +1,48 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import "./Layout.css";
 
 function Layout({ setToken }) {
-
   const navigate = useNavigate();
 
   function handleLogout() {
-
     localStorage.removeItem("token");
-
     setToken(null);
-
     navigate("/login");
   }
 
   return (
-    <div>
+    <div className="app-layout">
 
-      <nav>
+      <aside className="sidebar">
+        <h2 className="logo">CyberGuard</h2>
 
-        <h2>CyberGuard</h2>
+        <nav className="sidebar-nav">
+          <NavLink to="/dashboard">
+            Dashboard
+          </NavLink>
 
-        <Link to="/dashboard">
-          Dashboard
-        </Link>
+          <NavLink to="/events">
+            Eventos
+          </NavLink>
 
-        {" | "}
+          <NavLink to="/alerts">
+            Alertas
+          </NavLink>
 
-        <Link to="/events">
-          Eventos
-        </Link>
+          <NavLink to="/simulator">
+            Simulador
+          </NavLink>
+        </nav>
 
-        {" | "}
-
-        <Link to="/alerts">
-          Alertas
-        </Link>
-
-        {" | "}
-
-        <Link to="/simulator">
-          Simulador
-        </Link>
-
-        {" | "}
-
-        <button onClick={handleLogout}>
+        <button
+          className="logout-button"
+          onClick={handleLogout}
+        >
           Logout
         </button>
+      </aside>
 
-      </nav>
-
-      <hr />
-
-      <main>
+      <main className="main-content">
         <Outlet />
       </main>
 

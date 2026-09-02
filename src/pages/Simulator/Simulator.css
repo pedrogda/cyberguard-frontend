@@ -1,0 +1,71 @@
+.simulator-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.simulator-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.simulation-card {
+  padding: 24px;
+
+  background: #111827;
+
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+}
+
+.simulation-card h2 {
+  margin-top: 0;
+
+  color: #f8fafc;
+}
+
+.simulation-card p {
+  line-height: 1.5;
+
+  color: #94a3b8;
+}
+
+.simulation-card button {
+  margin-top: 16px;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  background: #0284c7;
+  color: white;
+
+  cursor: pointer;
+}
+
+.simulation-card button:hover {
+  background: #0369a1;
+}
+
+.simulation-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.simulation-message {
+  padding: 16px;
+
+  background: #111827;
+
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+
+  color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .simulator-grid {
+    grid-template-columns: 1fr;
+  }
+}

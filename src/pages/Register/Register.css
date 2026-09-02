@@ -1,0 +1,103 @@
+.login-page,
+.register-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: #080d18;
+}
+
+.login-card,
+.register-card {
+  width: 100%;
+  max-width: 420px;
+
+  padding: 36px;
+
+  background: #111827;
+
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+}
+
+.login-header h1,
+.register-header h1 {
+  margin: 0 0 8px;
+
+  color: #38bdf8;
+}
+
+.login-header p,
+.register-header p {
+  color: #94a3b8;
+}
+
+.login-form,
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.form-group input {
+  padding: 12px 14px;
+
+  border: 1px solid #334155;
+  border-radius: 8px;
+
+  background: #0f172a;
+  color: #f8fafc;
+
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #38bdf8;
+}
+
+.login-form button,
+.register-form button {
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #0284c7;
+  color: white;
+
+  cursor: pointer;
+}
+
+.login-form button:hover,
+.register-form button:hover {
+  background: #0369a1;
+}
+
+.login-error,
+.register-error {
+  color: #fca5a5;
+}
+
+.login-register-link,
+.register-login-link {
+  color: #94a3b8;
+}
+
+.login-register-link a,
+.register-login-link a {
+  color: #38bdf8;
+}

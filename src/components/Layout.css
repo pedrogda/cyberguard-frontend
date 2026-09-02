@@ -1,0 +1,80 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #0b1120;
+}
+
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+
+  padding: 28px 20px;
+
+  background: #080d18;
+  border-right: 1px solid #1e293b;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin: 0 0 36px;
+
+  font-size: 22px;
+  color: #38bdf8;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-nav a {
+  padding: 12px 14px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  color: #94a3b8;
+
+  transition: 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background: #111827;
+  color: #f8fafc;
+}
+
+.sidebar-nav a.active {
+  background: #172554;
+  color: #38bdf8;
+}
+
+.logout-button {
+  margin-top: auto;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #1e293b;
+  color: #cbd5e1;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.logout-button:hover {
+  background: #334155;
+}
+
+.main-content {
+  flex: 1;
+
+  padding: 32px;
+
+  overflow-x: hidden;
+}
