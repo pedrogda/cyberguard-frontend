@@ -4,7 +4,7 @@ import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login({ setToken }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -16,7 +16,7 @@ function Login({ setToken }) {
 
     try {
       const response = await api.post("/auth/login", {
-        username,
+        email,
         password
       });
 
@@ -44,15 +44,14 @@ function Login({ setToken }) {
         <form onSubmit={handleLogin} className="login-form">
 
           <div className="form-group">
-            <label>Usuário</label>
+            <label>Email</label>
 
             <input
-              type="text"
-              value={username}
-              onChange={(event) =>
-                setUsername(event.target.value)
-              }
-              placeholder="Digite seu usuário"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              placeholder="Digite seu email"
+              required
             />
           </div>
 

@@ -5,6 +5,7 @@ import "./Register.css";
 
 function Register() {
     const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
@@ -21,10 +22,13 @@ function Register() {
         }
 
         try {
+            
             await api.post("/auth/register", {
                 username,
+                email,
                 password
             });
+
 
             navigate("/login");
         } catch (error) {
@@ -62,6 +66,18 @@ function Register() {
                                 setUsername(event.target.value)
                             }
                             placeholder="Digite seu usuário"
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                            placeholder="Digite seu email"
+                            required
                         />
                     </div>
 
